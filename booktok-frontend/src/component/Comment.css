@@ -1,0 +1,66 @@
+
+.comments {
+    overflow-y: auto;
+    flex-grow: 1;
+    padding: 10px;
+}
+
+.comment {
+    display: flex;
+    align-items: top;
+    margin-bottom: 10px;
+}
+
+.comment-text {
+    margin-left: 0px;
+}
+
+.comment-form {
+    display: flex;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #eeefef;
+    border-top: 1px solid #ddd;
+}
+
+.comment-input {
+    flex-grow: 1;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-right: 10px;
+    box-sizing: border-box;
+}
+
+.send-button {
+    padding: 10px;
+    border: none;
+    background-color: #00f;
+    color: white;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+.comment-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.like-counter {
+    font-size: 0.8rem;
+}
+
+.like-button,
+.reply-button {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.like-button:hover,
+.reply-button:hover {
+    text-decoration-line: underline;
+}
