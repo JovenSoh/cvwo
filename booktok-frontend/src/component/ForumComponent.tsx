@@ -34,7 +34,7 @@ const ForumComponent: React.FC<ForumProps> = ({ book, setBooks, username }) => {
     };
 
     try {
-      const response = await fetch('http://localhost:8080/comments', {
+      const response = await fetch(process.env.REACT_APP_SERVER_IP + '/comments', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ const ForumComponent: React.FC<ForumProps> = ({ book, setBooks, username }) => {
       }
 
       // refresh the fetch to show new comment
-      axios.get('http://localhost:8080/posts')
+      axios.get(process.env.REACT_APP_SERVER_IP + '/posts')
         .then(response => {
           console.log(response.data)
           setBooks(response.data);

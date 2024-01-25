@@ -8,6 +8,7 @@ import Login from './component/Login';
 import BookScroller from './component/BookScroller';
 import NavBar from './component/NavBar';
 import { Book } from './component/BookScroller';
+import Profile from './component/Profile';
 import Upload from './component/Upload';
 
 function App() {
@@ -17,7 +18,8 @@ function App() {
 
   useEffect(() => {
     if (isLoggedIn) {
-      axios.get('http://localhost:8080/posts')
+      console.log(process.env.REACT_APP_SERVER_IP + '/posts')
+      axios.get(process.env.REACT_APP_SERVER_IP + '/posts')
         .then(response => {
           console.log(response.data)
           setBooks(response.data);
@@ -41,7 +43,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/" element={!isLoggedIn ? <Login onLogin={handleLogin} /> : <BookScroller books={books} setBooks={setBooks} username={username} />} />
-          <Route path="/profile" element={!isLoggedIn ? <Login onLogin={handleLogin} /> : <div>Profile Page</div>} />
+          <Route path="/profile" element={!isLoggedIn ? <Login onLogin={handleLogin} /> : <Profile username={username} setUsername={setUsername} />} />
           <Route path="/upload" element={!isLoggedIn ? <Login onLogin={handleLogin} /> : <Upload username={username} />} />
         </Routes>
       </div>

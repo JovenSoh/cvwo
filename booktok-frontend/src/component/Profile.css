@@ -1,0 +1,51 @@
+.profile-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .profile-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .submit-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+  }  
+
+  
+.toast-message {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: green; 
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .toast-message.error {
+    background-color: red;
+  }
+  

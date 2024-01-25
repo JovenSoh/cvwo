@@ -43,7 +43,7 @@ func main() {
 
     db, err := gorm.Open("postgres", "host=localhost user=postgres dbname=booktok password=admin sslmode=disable")
     if err != nil {
-        panic("Failed to connect to database")
+        panic("Failed to connect to database: " + err.Error())
     }
     defer db.Close()
 
@@ -74,17 +74,17 @@ func main() {
     })
 
     router.POST("/posts", func(c *gin.Context) {
-        // Parse multipart form
+        // parse multipart form
         if err := c.Request.ParseMultipartForm(32 << 20); err != nil { // 32 MB max memory
             c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid form"})
             return
         }
     
-        // Extract text fields
+        // extract text fields
         content := c.PostForm("content")
         username := c.PostForm("username")
     
-        // Handle file upload
+        // handle file upload
         file, header, err := c.Request.FormFile("file")
         if err != nil {
             c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid file upload"})

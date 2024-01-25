@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './Upload.css'; 
 
+
 interface UploadProps {
   username: string;
 }
@@ -37,7 +38,7 @@ const Upload: React.FC<UploadProps> = ({ username }) => {
     formData.append('username', username);
 
     try {
-      const response = await axios.post('http://localhost:8080/posts', formData, {
+      const response = await axios.post(process.env.REACT_APP_SERVER_IP + '/posts', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -57,6 +58,9 @@ const Upload: React.FC<UploadProps> = ({ username }) => {
   return (
     <div className="upload-container">
       <form onSubmit={handleUpload} className="upload-form">
+        <h1 className='upload-form-title'> 
+          Upload your Book 
+        </h1>
         <textarea
           className="text-input"
           value={content}
